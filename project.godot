@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="Pong"
+config/description="Pong, ping"
+config/version="0.1"
 run/main_scene="res://table.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://art/ping-pong.png"
 
 [display]
 

@@ -13,6 +13,8 @@ Label/font_sizes/font_size = 128
 Label/fonts/Point = ExtResource("2_icvhr")
 
 [node name="HUD" type="CanvasLayer"]
+layer = 0
+follow_viewport_enabled = true
 script = ExtResource("1_b6tr4")
 
 [node name="p1_points" type="Label" parent="."]
@@ -37,9 +39,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -56.0
+offset_left = -128.0
 offset_top = -236.0
-offset_right = 54.0
+offset_right = 128.0
 offset_bottom = -183.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -55,9 +57,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -79.0
+offset_left = -128.0
 offset_top = -172.0
-offset_right = 78.0
+offset_right = 128.0
 offset_bottom = -119.0
 grow_horizontal = 2
 grow_vertical = 0

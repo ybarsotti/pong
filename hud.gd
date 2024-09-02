@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @onready var p_1_points: Label = $p1_points 
 @onready var p_2_points: Label = $p2_points
-@onready var start_button: Button = $start_button
 
 signal start(mode: String)
 
