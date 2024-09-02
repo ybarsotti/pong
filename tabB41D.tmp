@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://drkru74p5dy2f"]
+
+[ext_resource type="PackedScene" uid="uid://dtun1jr7abrde" path="res://paddle.tscn" id="1_4fgke"]
+[ext_resource type="Script" path="res://table.gd" id="1_qlc1o"]
+[ext_resource type="PackedScene" uid="uid://78j3447f1e85" path="res://ball.tscn" id="2_a853r"]
+[ext_resource type="PackedScene" uid="uid://ctg0d0byq410l" path="res://hud.tscn" id="2_toqji"]
+[ext_resource type="AudioStream" uid="uid://b2mndnmtqysxa" path="res://sound/beeeep.ogg" id="5_nndjm"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d35e8"]
+a = Vector2(-1, -2)
+b = Vector2(896, 0)
+
+[node name="Table" type="Node"]
+script = ExtResource("1_qlc1o")
+
+[node name="WallTop" type="StaticBody2D" parent="."]
+position = Vector2(1, 8)
+collision_layer = 4
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="WallTop"]
+offset_left = -1.0
+offset_top = -11.0
+offset_right = 895.0
+offset_bottom = -3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop"]
+position = Vector2(-1, 0)
+shape = SubResource("SegmentShape2D_d35e8")
+debug_color = Color(0.236039, 0.376662, 1, 0.42)
+
+[node name="WallBottom" type="StaticBody2D" parent="."]
+position = Vector2(1, 416)
+collision_layer = 4
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="WallBottom"]
+offset_left = -1.0
+offset_right = 895.0
+offset_bottom = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom"]
+shape = SubResource("SegmentShape2D_d35e8")
+debug_color = Color(0.317009, 0.361228, 1, 0.42)
+
+[node name="PaddleLeft" parent="." instance=ExtResource("1_4fgke")]
+position = Vector2(16, 176)
+
+[node name="PaddleRight" parent="." instance=ExtResource("1_4fgke")]
+position = Vector2(856, 176)
+player_number = 1
+
+[node name="PaddleLeftStart" type="Marker2D" parent="."]
+position = Vector2(16, 176)
+
+[node name="PaddleRightStart" type="Marker2D" parent="."]
+position = Vector2(856, 176)
+
+[node name="BallStart" type="Marker2D" parent="."]
+position = Vector2(448, 208)
+
+[node name="MiddleTable" type="ColorRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = -3.0
+offset_right = 8.0
+offset_bottom = 424.0
+grow_horizontal = 2
+
+[node name="HUD" parent="." instance=ExtResource("2_toqji")]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="Ball" parent="." instance=ExtResource("2_a853r")]
+position = Vector2(448, 208)
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nndjm")
+volume_db = -9.369
+
+[connection signal="start" from="HUD" to="." method="start_game"]
+[connection signal="exited" from="Ball" to="." method="point_to"]

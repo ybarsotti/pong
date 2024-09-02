@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctg0d0byq410l"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_b6tr4"]
+[ext_resource type="FontFile" uid="uid://btxclddh16o3v" path="res://font/ARCADE.TTF" id="2_icvhr"]
+
+[sub_resource type="Theme" id="Theme_1bvcw"]
+default_font = ExtResource("2_icvhr")
+default_font_size = 16
+Label/colors/font_color = Color(0.380392, 0.556863, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 128
+Label/fonts/Point = ExtResource("2_icvhr")
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_b6tr4")
+
+[node name="p1_points" type="Label" parent="."]
+offset_left = 328.0
+offset_top = 48.0
+offset_right = 386.0
+offset_bottom = 177.0
+theme = SubResource("Theme_1bvcw")
+text = "0"
+
+[node name="p2_points" type="Label" parent="."]
+offset_left = 520.0
+offset_top = 48.0
+offset_right = 578.0
+offset_bottom = 177.0
+theme = SubResource("Theme_1bvcw")
+text = "0"
+
+[node name="start_button_single" type="Button" parent="." groups=["buttons"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -236.0
+offset_right = 54.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_icvhr")
+theme_override_font_sizes/font_size = 32
+text = "Single Player"
+
+[node name="start_button_two" type="Button" parent="." groups=["buttons"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -172.0
+offset_right = 78.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_icvhr")
+theme_override_font_sizes/font_size = 32
+text = "Player x Player"
+
+[connection signal="pressed" from="start_button_single" to="." method="start_game" binds= ["single"]]
+[connection signal="pressed" from="start_button_two" to="." method="start_game" binds= ["two"]]
