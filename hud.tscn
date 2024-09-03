@@ -69,5 +69,54 @@ theme_override_fonts/font = ExtResource("2_icvhr")
 theme_override_font_sizes/font_size = 32
 text = "Player x Player"
 
+[node name="start_button_host_online" type="Button" parent="." groups=["buttons"]]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -100.0
+offset_right = -16.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_icvhr")
+theme_override_font_sizes/font_size = 32
+text = "Host online"
+
+[node name="start_button_join_online" type="Button" parent="." groups=["buttons"]]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -100.0
+offset_right = 272.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_icvhr")
+theme_override_font_sizes/font_size = 32
+text = "Join online"
+
+[node name="ip_field" type="TextEdit" parent="." groups=["buttons"]]
+visible = false
+clip_contents = false
+offset_left = 464.0
+offset_top = 376.0
+offset_right = 720.0
+offset_bottom = 416.0
+placeholder_text = "IP"
+
 [connection signal="pressed" from="start_button_single" to="." method="start_game" binds= ["single"]]
 [connection signal="pressed" from="start_button_two" to="." method="start_game" binds= ["two"]]
+[connection signal="pressed" from="start_button_host_online" to="." method="start_game" binds= ["server"]]
+[connection signal="pressed" from="start_button_join_online" to="." method="start_game" binds= ["join"]]

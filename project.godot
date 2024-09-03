@@ -17,6 +17,10 @@ run/main_scene="res://table.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://art/ping-pong.png"
 
+[autoload]
+
+Server="*res://server.gd"
+
 [display]
 
 window/size/viewport_width=896

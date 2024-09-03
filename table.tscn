@@ -49,14 +49,14 @@ debug_color = Color(0.317009, 0.361228, 1, 0.42)
 position = Vector2(16, 176)
 
 [node name="PaddleRight" parent="." instance=ExtResource("1_4fgke")]
-position = Vector2(856, 176)
-player_number = 1
+position = Vector2(872, 176)
+player_number = 2
 
 [node name="PaddleLeftStart" type="Marker2D" parent="."]
 position = Vector2(16, 176)
 
 [node name="PaddleRightStart" type="Marker2D" parent="."]
-position = Vector2(856, 176)
+position = Vector2(872, 176)
 
 [node name="BallStart" type="Marker2D" parent="."]
 position = Vector2(448, 208)
@@ -72,8 +72,6 @@ offset_bottom = 424.0
 grow_horizontal = 2
 
 [node name="HUD" parent="." instance=ExtResource("2_toqji")]
-layer = 0
-follow_viewport_enabled = true
 
 [node name="Ball" parent="." instance=ExtResource("2_a853r")]
 position = Vector2(448, 208)

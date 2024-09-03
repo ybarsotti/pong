@@ -16,11 +16,11 @@ var p2_points = 0
 @onready var hud: CanvasLayer = $HUD
 
 func point_to(side: int):
-	if side == 0:
+	if side == 1:
 		p1_points += 1
 		hud.set_p1_points(p1_points)
 	
-	if side == 1:
+	if side == 0:
 		p2_points += 1
 		hud.set_p2_points(p2_points)
 
@@ -40,9 +40,11 @@ func start_game(mode: String) -> void:
 	await get_tree().create_timer(0.5).timeout
 	paddle_left.enable_movement()
 	paddle_right.enable_movement()
-	if mode == "two":
+	if mode == "two" or mode == "join":
 		paddle_right.player_number = 1
 	if mode == "single":
 		paddle_right.player_number = 2
+	if mode == "server":
+		Server.start()
 	ball.reset_speed()
 	ball.serve()
